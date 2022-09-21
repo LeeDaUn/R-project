@@ -1,5 +1,40 @@
 602277113 이다운
 
+# 09-21 4주차 실습 
+
+# 1단계 요청목록 만들기
+url_list <- list()
+cnt <- 0
+
+# 2단계 요청목록 채우기
+for(i in 1:nrow(loc)){
+  for(j in 1:length(datelist)){
+    cnt <- cnt + 1
+    url_list[cnt] <- paste("http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade",
+                           "LAWD_CD = ", loc[i,1],
+                           "&DEAL_YMD = ", datelist[j],
+                           "&numOfLows = ", 100,
+                           "&serviceKey = ", service_key)
+  }
+  Sys.sleep(0.1)
+  msg<-paste("[", i, "/", nrow(loc), "]", loc[i,3], "의 크롤링 목록이 생성됨 => 총 [", cnt, "] 건")
+  cat(msg,"\n\n")
+}
+
+## 결과값
+
+[ 1 / 25 ] 종로구 의 크롤링 목록이 생성됨 => 총 [ 12 ] 건 
+
+[ 2 / 25 ] 중구 의 크롤링 목록이 생성됨 => 총 [ 24 ] 건 
+.
+.
+.
+[ 24 / 25 ] 송파구 의 크롤링 목록이 생성됨 => 총 [ 288 ] 건 
+
+[ 25 / 25 ] 강동구 의 크롤링 목록이 생성됨 => 총 [ 300 ] 건 
+
+# 09-14 3주차 실습 
+
 #이지스퍼블리싱 자료실 2번째 소스파일 다운로드
 
 #------------------------------------
