@@ -33,6 +33,29 @@ for(i in 1:nrow(loc)){
 
 [ 25 / 25 ] 강동구 의 크롤링 목록이 생성됨 => 총 [ 300 ] 건 
 
+
+## 3단계 요청 목록 확인
+length(url_list)
+browseURL(paste0(url_list[i]))
+
+#--------------------------
+## 03-3 크롤러 제작
+#--------------------------
+
+## 1단계 :  임시 저장 리스트 생성
+###install.packages("XML")
+###install.packages("data.table")
+###install.packages("stringr")
+
+library(XML)
+library(data.table)
+library(stringr)
+
+raw_data <- list()
+root_Node <- list()
+total <- list()
+dir.create("02_raw_data")
+
 # 09-14 3주차 실습 
 
 #이지스퍼블리싱 자료실 2번째 소스파일 다운로드
